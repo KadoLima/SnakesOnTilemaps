@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14cd8dae85e938544a2d5673928c7a98
+guid: e20e239d37e19804f9d0f4ba566134e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,181 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: flames_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20dbad85f4c462f4b8db60cc198ea0b9
-      internalID: -284161789
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05a11a7ba7cf42d468d9bfabac03a308
-      internalID: -1837316002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42438951b9bffff49b2287c8f36bd3ce
-      internalID: 1080395725
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4754019dbb2a8f0418d2616d5ce6f609
-      internalID: -1578541201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 24
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 021f88385e8aee449a57121e449c5919
-      internalID: 738322892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 24
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7c014a4dfd6f7c4e8ae97255356c755
-      internalID: 634780898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_6
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 24
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c092fe5f15b3ce14da6329f5d65006b7
-      internalID: 1708095769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 24
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 79cf5b7f946ef934492ece01e2aa4595
-      internalID: 1151205816
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_8
+      name: torches_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fe26f9d8a226a248a2e89248cd88775
-      internalID: 1384333547
+      spriteID: 986114d5edc4625458b75da011a12503
+      internalID: 829215155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flames_9
+      name: torches_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 851cb10ad6a81664ca5c68f83ee185e9
-      internalID: -652836230
+      spriteID: 89affec6c8c2d514f92941b277a2b085
+      internalID: 346588168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flames_10
+      name: torches_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -352,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15bb5fa476817d54b87d88544ef77287
-      internalID: -658708607
+      spriteID: b8e7681a41a55304493970feffbf202f
+      internalID: -1152980688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flames_11
+      name: torches_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
-        height: 24
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,8 +205,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0dfed67c1cd2e24498834d3a77220b2
-      internalID: -1596604476
+      spriteID: e86c403083842fb4bb0d6b06cf0c79dc
+      internalID: 1006594005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: torches_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e26a19648c544b4fab02dc87baa2b26
+      internalID: 101859358
       vertices: []
       indices: 
       edges: []
@@ -390,18 +243,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      flames_6: 1708095769
-      flames_11: -1596604476
-      flames_2: 1080395725
-      flames_1: -1837316002
-      flames_10: -658708607
-      flames_5: 634780898
-      flames_7: 1151205816
-      flames_9: -652836230
-      flames_0: -284161789
-      flames_4: 738322892
-      flames_8: 1384333547
-      flames_3: -1578541201
+      torches_0: 829215155
+      torches_2: -1152980688
+      torches_1: 346588168
+      torches_4: 101859358
+      torches_3: 1006594005
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

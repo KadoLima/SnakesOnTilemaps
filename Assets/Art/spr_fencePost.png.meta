@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14cd8dae85e938544a2d5673928c7a98
+guid: c1b17d5ffa6630d499b3430100bd89d2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,253 +128,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: flames_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20dbad85f4c462f4b8db60cc198ea0b9
-      internalID: -284161789
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05a11a7ba7cf42d468d9bfabac03a308
-      internalID: -1837316002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_2
+      name: spr_fencePost_0
       rect:
         serializedVersion: 2
         x: 32
-        y: 48
-        width: 16
-        height: 24
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42438951b9bffff49b2287c8f36bd3ce
-      internalID: 1080395725
+      spriteID: a20debd90e6c64f44b23de661d550d61
+      internalID: 366911047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flames_3
+      name: spr_fencePost_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 24
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4754019dbb2a8f0418d2616d5ce6f609
-      internalID: -1578541201
+      spriteID: acaa665aa97871348ad8e6433b36cec0
+      internalID: 277832867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flames_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 24
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 021f88385e8aee449a57121e449c5919
-      internalID: 738322892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 24
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7c014a4dfd6f7c4e8ae97255356c755
-      internalID: 634780898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_6
+      name: spr_fencePost_2
       rect:
         serializedVersion: 2
         x: 32
-        y: 24
-        width: 16
-        height: 24
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c092fe5f15b3ce14da6329f5d65006b7
-      internalID: 1708095769
+      spriteID: 7d01dbda972abd8488c3a155809e0d86
+      internalID: 2051246322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flames_7
+      name: spr_fencePost_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 24
-        width: 16
-        height: 24
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79cf5b7f946ef934492ece01e2aa4595
-      internalID: 1151205816
+      spriteID: 5eed072af4d6b8d4384036052ff9bad6
+      internalID: -1868010141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flames_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7fe26f9d8a226a248a2e89248cd88775
-      internalID: 1384333547
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_9
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 851cb10ad6a81664ca5c68f83ee185e9
-      internalID: -652836230
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flames_10
+      name: spr_fencePost_4
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 16
-        height: 24
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15bb5fa476817d54b87d88544ef77287
-      internalID: -658708607
+      spriteID: 96d222efbf1fa6e4696370b725f38234
+      internalID: -310365294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flames_11
+      name: spr_fencePost_5
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 16
-        height: 24
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0dfed67c1cd2e24498834d3a77220b2
-      internalID: -1596604476
+      spriteID: 3f8408177675b9d499f92881f72f3bd5
+      internalID: 1240999082
       vertices: []
       indices: 
       edges: []
@@ -390,18 +264,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      flames_6: 1708095769
-      flames_11: -1596604476
-      flames_2: 1080395725
-      flames_1: -1837316002
-      flames_10: -658708607
-      flames_5: 634780898
-      flames_7: 1151205816
-      flames_9: -652836230
-      flames_0: -284161789
-      flames_4: 738322892
-      flames_8: 1384333547
-      flames_3: -1578541201
+      spr_fencePost_1: 277832867
+      spr_fencePost_5: 1240999082
+      spr_fencePost_2: 2051246322
+      spr_fencePost_4: -310365294
+      spr_fencePost_0: 366911047
+      spr_fencePost_3: -1868010141
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
 
     public bool IsPlayable()
     {
-        return wallTilesEffector.IsDone && player.IsReady;
+        return player.IsReady;
+        //return wallTilesEffector.IsDone && player.IsReady;
     }
 }

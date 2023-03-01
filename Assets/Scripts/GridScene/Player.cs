@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetInitialPosition(TilemapsManager.instance.Scenario.WorldToCell(transform.position));
+        //SetInitialPosition(TilemapsManager.instance.Scenario.WorldToCell(transform.position));
 
         //TilemapsManager.instance.ChangeTile(TilemapsManager.instance.ScenarioTilemap.WorldToCell(transform.position));
         //TilemapsManager.instance.PaintTile(TilemapsManager.instance.ScenarioTilemap.WorldToCell(transform.position));
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         originalScale = transform.localScale;
         transform.DOScale(0, 0);
 
-        yield return new WaitUntil(() => GameController.instance.wallTilesEffector.IsDone);
+        //yield return new WaitUntil(() => GameController.instance.wallTilesEffector.IsDone);
 
         var sequence = DOTween.Sequence();
         sequence.Append(transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), .1f));
@@ -158,11 +158,11 @@ public class Player : MonoBehaviour
     //    }
     //}
 
-    private void SetInitialPosition(Vector3Int pos) //Snaps the player gameObject in the center of the nearest cell, when game starts.
-    {
-        Vector3Int _cellPosition = pos;
-        transform.position = TilemapsManager.instance.Scenario.GetCellCenterWorld(_cellPosition);
-    }
+    //private void SetInitialPosition(Vector3Int pos) //Snaps the player gameObject in the center of the nearest cell, when game starts.
+    //{
+    //    Vector3Int _cellPosition = pos;
+    //    transform.position = TilemapsManager.instance.Scenario.GetCellCenterWorld(_cellPosition);
+    //}
 
     void MoveToAnotherTile() //Move to the next cell.
     {

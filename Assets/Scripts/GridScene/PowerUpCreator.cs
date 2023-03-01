@@ -8,11 +8,11 @@ public class PowerUpCreator : MonoBehaviour
     [SerializeField] Tilemap scenario;
     [SerializeField] Transform powerUpPrefab;
     [SerializeField] Player player;
-    [SerializeField] ParticleSystem powerUpParticles;
+    //[SerializeField] ParticleSystem powerUpParticles;
 
     private void Start()
     {
-        powerUpParticles.gameObject.SetActive(false);
+        //powerUpParticles.gameObject.SetActive(false);
     }
 
     public void CreatePowerUpAtRandomPosition()
@@ -51,17 +51,17 @@ public class PowerUpCreator : MonoBehaviour
         return false;
     }
 
-   public void PlayEffectAt(Vector2 pos)
-    {
-        powerUpParticles.transform.position = pos;
-        StartCoroutine(PlayEffectCoroutine());
-    }
+   //public void PlayEffectAt(Vector2 pos)
+   // {
+   //     powerUpParticles.transform.position = pos;
+   //     StartCoroutine(PlayEffectCoroutine());
+   // }
 
-    IEnumerator PlayEffectCoroutine()
-    {
-        powerUpParticles.gameObject.SetActive(true);
-        powerUpParticles.Play();
-        yield return new WaitForSeconds(1);
-        powerUpParticles.gameObject.SetActive(false);
-    }
+   // IEnumerator PlayEffectCoroutine()
+   // {
+   //     powerUpParticles.gameObject.SetActive(true);
+   //     powerUpParticles.Play();
+   //     yield return new WaitForSeconds(1);
+   //     powerUpParticles.gameObject.SetActive(false);
+   // }
 }

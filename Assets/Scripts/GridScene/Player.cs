@@ -211,7 +211,7 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("PowerUp"))
         {
             GrowBody();
-            TilemapsManager.instance.powerUpCreator.PlayEffectAt(collision.transform.position);
+            //TilemapsManager.instance.powerUpCreator.PlayEffectAt(collision.transform.position);
             collision.gameObject.GetComponent<PowerUpEffector>().CameraShake();
             Debug.LogWarning("I ate a powerup!");
             Destroy(collision.gameObject);

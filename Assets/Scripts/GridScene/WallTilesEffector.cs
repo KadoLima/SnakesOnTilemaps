@@ -8,6 +8,7 @@ public class WallTilesEffector : MonoBehaviour
     [SerializeField] Tilemap wallsTilemap;
     [SerializeField] TileBase invisTile;
     [SerializeField] TileBase normalTile;
+    [SerializeField] GameObject wallLight;
 
     [SerializeField] float effectSpeed = 0.01f;
 
@@ -39,6 +40,9 @@ public class WallTilesEffector : MonoBehaviour
             {
                 yield return new WaitForSeconds(effectSpeed);
                 wallsTilemap.SetTile(pos, normalTile);
+                
+                GameObject _g = Instantiate(wallLight, wallsTilemap.GetCellCenterWorld(pos), Quaternion.identity);
+                _g.transform.SetParent(this.transform);
             }
         }
         yield return new WaitForSeconds(0.1f);

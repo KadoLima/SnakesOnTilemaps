@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7755638394483045356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.37, y: 0.49, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2422309738888143457}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: fd645037a59302946a5e0ff2b8754570, type: 3}
-  m_Color: {r: 0.72012585, g: 1, b: 0.5801887, a: 1}
+  m_Sprite: {fileID: 965085732, guid: 5e61fa0a391db724c9cd07da63e96b99, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,7 +104,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -133,13 +133,13 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 00000000
   m_ShapePath:
-  - {x: -0.49999952, y: -0.49999997, z: 0}
-  - {x: -0.49999952, y: 0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: 0.5, y: -0.49999997, z: 0}
+  - {x: -0.25, y: -0.25, z: 0}
+  - {x: -0.25, y: 0.25, z: 0}
+  - {x: 0.25, y: 0.25, z: 0}
+  - {x: 0.25, y: -0.25, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43178
+  m_InstanceId: 63916
 --- !u!1 &8232536892447809214
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 7482667652216324306, guid: fd645037a59302946a5e0ff2b8754570, type: 3}
+  m_LightCookieSprite: {fileID: 965085732, guid: 5e61fa0a391db724c9cd07da63e96b99, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
@@ -206,28 +206,28 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_Vertices:
-  - position: {x: -0.5, y: 0.5, z: 0}
+  - position: {x: -0.25, y: 0.25, z: 0}
     color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 1}
-  - position: {x: 0.5, y: -0.5, z: 0}
+    uv: {x: 0.3125, y: 1}
+  - position: {x: 0.25, y: 0.25, z: 0}
     color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 1, y: 0}
-  - position: {x: 0.5, y: 0.5, z: 0}
+    uv: {x: 0.375, y: 1}
+  - position: {x: -0.25, y: -0.25, z: 0}
     color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 1, y: 1}
-  - position: {x: -0.5, y: -0.5, z: 0}
+    uv: {x: 0.3125, y: 0.9375}
+  - position: {x: 0.25, y: -0.25, z: 0}
     color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
+    uv: {x: 0.375, y: 0.9375}
   - position: {x: 0, y: 0, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
   - position: {x: 0, y: 0, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  m_Triangles: 030000000100020001000000
+  m_Triangles: 000001000200020001000300
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.5, y: 0.5, z: 0}
+    m_Extent: {x: 0.25, y: 0.25, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

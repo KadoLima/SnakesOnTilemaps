@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class PowerUpCreator : MonoBehaviour
 {
     [SerializeField] Tilemap scenario;
+    [SerializeField] Tilemap firecampAreaTilemap;
     [SerializeField] Transform[] powerUpPrefabs;
     [SerializeField] Player player;
     //[SerializeField] ParticleSystem powerUpParticles;
@@ -29,7 +30,7 @@ public class PowerUpCreator : MonoBehaviour
 
         Vector3Int _randomPos = TilemapsManager.instance.GetRandomTilePosition();
 
-        while (IsBodyInTile(_randomPos))
+        while (IsBodyInTile(_randomPos) && IsTooCloseToFirecamp(_randomPos))
         {
             _randomPos = TilemapsManager.instance.GetRandomTilePosition();
         }
@@ -49,6 +50,11 @@ public class PowerUpCreator : MonoBehaviour
         }
 
         return false;
+    }
+
+    bool IsTooCloseToFirecamp(Vector3Int tilePosition)
+    {
+        return firecampAreaTilemap.HasTile(tilePosition);
     }
 
    //public void PlayEffectAt(Vector2 pos)

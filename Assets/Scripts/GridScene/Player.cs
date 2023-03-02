@@ -228,12 +228,14 @@ public class Player : MonoBehaviour
 
         if (collision.CompareTag("Wall"))
         {
+            Debug.LogWarning("I hit a WALL! " + collision.gameObject.name);
             isDead = true;
             StartCoroutine(ReloadScene_Coroutine());
         }
 
         if (collision.CompareTag("Body") && body.Count > 1)
         {
+            Debug.LogWarning("I hit MYSELF!! " + collision.gameObject.name);
             isDead = true;
             StartCoroutine(ReloadScene_Coroutine());
         }

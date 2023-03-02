@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class PowerUpCreator : MonoBehaviour
 {
     [SerializeField] Tilemap scenario;
-    [SerializeField] Transform powerUpPrefab;
+    [SerializeField] Transform[] powerUpPrefabs;
     [SerializeField] Player player;
     //[SerializeField] ParticleSystem powerUpParticles;
 
@@ -25,7 +25,7 @@ public class PowerUpCreator : MonoBehaviour
     {
         yield return new WaitUntil(() => GameController.instance.IsPlayable());
 
-        Transform _powerUp = Instantiate(powerUpPrefab);
+        Transform _powerUp = Instantiate(powerUpPrefabs[Random.Range(0,powerUpPrefabs.Length)]);
 
         Vector3Int _randomPos = TilemapsManager.instance.GetRandomTilePosition();
 

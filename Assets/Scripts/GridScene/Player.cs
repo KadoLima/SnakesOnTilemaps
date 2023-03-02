@@ -14,6 +14,7 @@ public enum CurrentDirection
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] Transform headSprite;
     [SerializeField] CurrentDirection currentDirection;
 
     [SerializeField] float moveSpeed = 5f;
@@ -22,13 +23,15 @@ public class Player : MonoBehaviour
 
     [SerializeField] List<Transform> body = new List<Transform>();
     public List<Transform> Body => body;
-    float currentMoveTime = 0;
+    float nextMove = 0;
     int movedTilesInCurrentDirection = 0;
 
     Vector3 originalScale;
 
-    public bool isReady;
+    bool isReady;
     public bool IsReady => isReady;
+
+    bool isDead;
 
 
     // Start is called before the first frame update
@@ -48,7 +51,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (GameController.instance.IsPlayable())
+        if (GameController.instance.IsPlayable() && !isDead)
         {
             ReadUserInput();
             MoveToAnotherTile();
@@ -166,7 +169,7 @@ public class Player : MonoBehaviour
 
     void MoveToAnotherTile() //Move to the next cell.
     {
-        if (Time.time > currentMoveTime)
+        if (Time.time > nextMove)
         {
             Vector3Int _currentPosition = TilemapsManager.instance.Scenario.WorldToCell(transform.position);
             Vector3Int _nextPosition = Vector3Int.zero;
@@ -183,7 +186,7 @@ public class Player : MonoBehaviour
 
             transform.position = TilemapsManager.instance.Scenario.GetCellCenterWorld(_nextPosition);
 
-            currentMoveTime = Time.time + 1 / moveSpeed;
+            nextMove = Time.time + 1 / moveSpeed;
             movedTilesInCurrentDirection++;
         }
     }
@@ -194,14 +197,19 @@ public class Player : MonoBehaviour
         switch (currentDirection)
         {
             case CurrentDirection.RIGHT:
+                headSprite.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
                 return _currentPosition + new Vector3Int((int)TilemapsManager.instance.CellSizeX(), 0);
             case CurrentDirection.LEFT:
+                headSprite.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
                 return _currentPosition - new Vector3Int((int)TilemapsManager.instance.CellSizeX(), 0);
             case CurrentDirection.UP:
+                headSprite.rotation = Quaternion.Euler(Vector3.zero);
                 return _currentPosition + new Vector3Int(0, (int)TilemapsManager.instance.CellSizeY());
             case CurrentDirection.DOWN:
+                headSprite.rotation = Quaternion.Euler(new Vector3(0, 0, -180));
                 return _currentPosition - new Vector3Int(0, (int)TilemapsManager.instance.CellSizeY());
             default:
+                headSprite.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
                 return _currentPosition + new Vector3Int((int)TilemapsManager.instance.CellSizeX(), 0);
         }
     }
@@ -212,7 +220,6 @@ public class Player : MonoBehaviour
         {
             GrowBody();
             //TilemapsManager.instance.powerUpCreator.PlayEffectAt(collision.transform.position);
-            collision.gameObject.GetComponent<PowerUpEffector>().CameraShake();
             Debug.LogWarning("I ate a powerup!");
             Destroy(collision.gameObject);
             TilemapsManager.instance.powerUpCreator.CreatePowerUpAtRandomPosition();
@@ -221,17 +228,22 @@ public class Player : MonoBehaviour
 
         if (collision.CompareTag("Wall"))
         {
-            Debug.LogWarning("I hit a wall!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            return;
+            isDead = true;
+            StartCoroutine(ReloadScene_Coroutine());
         }
 
         if (collision.CompareTag("Body") && body.Count > 1)
         {
-            Debug.LogWarning("I hit myself!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            return;
+            isDead = true;
+            StartCoroutine(ReloadScene_Coroutine());
         }
+    }
+
+    IEnumerator ReloadScene_Coroutine()
+    {
+        GameEffects.instance.CameraShake();
+        yield return new WaitForSeconds(0.3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void GrowBody()

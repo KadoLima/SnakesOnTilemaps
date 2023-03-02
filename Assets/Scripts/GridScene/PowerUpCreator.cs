@@ -16,14 +16,6 @@ public class PowerUpCreator : MonoBehaviour
         //powerUpParticles.gameObject.SetActive(false);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            CreatePowerUpAtRandomPosition();
-        }
-    }
-
     public void CreatePowerUpAtRandomPosition()
     {
         StartCoroutine(CreatePowerUpAtRandomPosition_Coroutine());
@@ -32,8 +24,7 @@ public class PowerUpCreator : MonoBehaviour
 
     IEnumerator CreatePowerUpAtRandomPosition_Coroutine()
     {
-        //yield return new WaitUntil(() => GameController.instance.IsPlayable());
-        yield return null;
+        yield return new WaitUntil(() => GameController.instance.IsPlayable());
 
         Transform _powerUp = Instantiate(powerUpPrefabs[Random.Range(0,powerUpPrefabs.Length)]);
 

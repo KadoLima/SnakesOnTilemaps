@@ -16,6 +16,14 @@ public class PowerUpCreator : MonoBehaviour
         //powerUpParticles.gameObject.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            CreatePowerUpAtRandomPosition();
+        }
+    }
+
     public void CreatePowerUpAtRandomPosition()
     {
         StartCoroutine(CreatePowerUpAtRandomPosition_Coroutine());
@@ -24,13 +32,14 @@ public class PowerUpCreator : MonoBehaviour
 
     IEnumerator CreatePowerUpAtRandomPosition_Coroutine()
     {
-        yield return new WaitUntil(() => GameController.instance.IsPlayable());
+        //yield return new WaitUntil(() => GameController.instance.IsPlayable());
+        yield return null;
 
         Transform _powerUp = Instantiate(powerUpPrefabs[Random.Range(0,powerUpPrefabs.Length)]);
 
         Vector3Int _randomPos = TilemapsManager.instance.GetRandomTilePosition();
 
-        while (IsBodyInTile(_randomPos) && IsTooCloseToFirecamp(_randomPos))
+        while (IsBodyInTile(_randomPos) || IsTooCloseToFirecamp(_randomPos))
         {
             _randomPos = TilemapsManager.instance.GetRandomTilePosition();
         }

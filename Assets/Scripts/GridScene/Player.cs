@@ -15,6 +15,7 @@ public enum CurrentDirection
 public class Player : MonoBehaviour
 {
     [SerializeField] Transform headSprite;
+    [SerializeField] GameObject headLight;
     [SerializeField] CurrentDirection currentDirection;
 
     [SerializeField] float moveSpeed = 5f;
@@ -61,21 +62,25 @@ public class Player : MonoBehaviour
 
     IEnumerator AppearingEffect()
     {
+        headLight.SetActive(false);
         originalScale = transform.localScale;
         transform.DOScale(0, 0);
 
         //yield return new WaitUntil(() => GameController.instance.wallTilesEffector.IsDone);
+        yield return new WaitUntil(() => GameEffects.instance.IntroDone);
 
         var sequence = DOTween.Sequence();
-        sequence.Append(transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), .1f));
+        sequence.Append(transform.DOScale(new Vector3(originalScale.x + 2f, originalScale.y + 2f, originalScale.z + 2f), .2f));
         sequence.AppendInterval(0.025f);
-        sequence.Append(transform.DOScale(originalScale, .1f));
+        sequence.Append(transform.DOScale(originalScale, .2f));
 
         yield return sequence.WaitForCompletion();
 
         yield return new WaitForSeconds(0.25f);
 
         isReady = true;
+        GameController.isFirstOpen = false;
+        headLight.SetActive(true);
     }
 
     public void ReadUserInput()
@@ -219,8 +224,11 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("PowerUp"))
         {
             GrowBody();
+
+            if (TilemapsManager.instance.powerUpCreator.IsPsychoFruit())
+                GameEffects.instance.PlayPsychoEffect();
+
             //TilemapsManager.instance.powerUpCreator.PlayEffectAt(collision.transform.position);
-            Debug.LogWarning("I ate a powerup!");
             Destroy(collision.gameObject);
             TilemapsManager.instance.powerUpCreator.CreatePowerUpAtRandomPosition();
             return;

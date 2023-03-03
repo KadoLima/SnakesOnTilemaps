@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5591945900966657184
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: isPsychoFruit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[0].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[0].g
+      value: 0.5882353
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[0].r
+      value: 0.72156864
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[1].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[1].b
+      value: 0.06607723
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[1].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[1].r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[2].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[2].b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[2].g
+      value: 0.58431375
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[2].r
+      value: 0.7372549
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[3].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[3].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[3].g
+      value: 0.6392157
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[3].r
+      value: 0.25882354
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[4].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[4].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[4].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5236707817540535386, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: psychoFruitColors.Array.data[4].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 661558365, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 661558365, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: UVModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 661558365, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 661558365, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 661558365, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 661558365, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: UVModule.sprites.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 1703391067, guid: fe690285f354d7147adee75cf6e87707, type: 3}
+    - target: {fileID: 2124968655, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124968655, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_InstanceId
+      value: -404922
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5980754
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887706, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887707, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1743901732, guid: 3e7d004ce37eb244f9a92910d90b6c89, type: 3}
+    - target: {fileID: 47479564197887707, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887707, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5855691
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887707, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_Color.r
+      value: 0.735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 47479564197887708, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}
+      propertyPath: m_Name
+      value: PowerUp Variant_Psycho
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6062190bed6754444b766d5d633ac4ff, type: 3}

@@ -9,6 +9,10 @@ public class PowerUpCreator : MonoBehaviour
     [SerializeField] Tilemap firecampAreaTilemap;
     [SerializeField] Transform[] powerUpPrefabs;
     [SerializeField] Player player;
+    [SerializeField] float psychoFruitDropRate = 0.1f;
+    int spawnedCount = 0;
+
+    bool currentFruitIsPsycho = false;
     //[SerializeField] ParticleSystem powerUpParticles;
 
     private void Start()
@@ -26,7 +30,18 @@ public class PowerUpCreator : MonoBehaviour
     {
         yield return new WaitUntil(() => GameController.instance.IsPlayable());
 
-        Transform _powerUp = Instantiate(powerUpPrefabs[Random.Range(0,powerUpPrefabs.Length)]);
+        Transform _powerUp = null;
+
+        if (Random.value < psychoFruitDropRate && spawnedCount >3)
+        {
+            currentFruitIsPsycho = true;
+            _powerUp = Instantiate(powerUpPrefabs[powerUpPrefabs.Length-1]);
+        }
+        else
+        {
+            currentFruitIsPsycho = false;
+            _powerUp = Instantiate(powerUpPrefabs[Random.Range(0,powerUpPrefabs.Length-1)]);
+        }
 
         Vector3Int _randomPos = TilemapsManager.instance.GetRandomTilePosition();
 
@@ -37,6 +52,7 @@ public class PowerUpCreator : MonoBehaviour
 
         _powerUp.position = TilemapsManager.instance.Scenario.GetCellCenterWorld(_randomPos);
         _powerUp.SetParent(transform);
+        spawnedCount++;
     }
 
     bool IsBodyInTile(Vector3Int tilePosition)
@@ -50,6 +66,11 @@ public class PowerUpCreator : MonoBehaviour
         }
 
         return false;
+    }
+
+    public bool IsPsychoFruit()
+    {
+        return currentFruitIsPsycho;
     }
 
     bool IsTooCloseToFirecamp(Vector3Int tilePosition)

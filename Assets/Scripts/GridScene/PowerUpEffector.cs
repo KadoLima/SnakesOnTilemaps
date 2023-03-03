@@ -11,9 +11,22 @@ public class PowerUpEffector : MonoBehaviour
 
     private Vector3 startPos;
 
+    [Space(10)]
+
+    [Header("Psycho Fruit parameters")]
+    [SerializeField]bool isPsychoFruit;
+    [SerializeField] Color[] psychoFruitColors;
+
+    SpriteRenderer mySpriteRenderer;
+
+
     private void Start()
     {
         Float();
+
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+
+        RandomChangeSpriteColor();
     }
 
     private void Float()
@@ -27,5 +40,22 @@ public class PowerUpEffector : MonoBehaviour
         sequence.Play();
     }
 
+    void RandomChangeSpriteColor()
+    {
+        if (!isPsychoFruit)
+            return;
 
+        float _duration = .25f;
+        int _chosenColorIndex = Random.Range(0, psychoFruitColors.Length);
+
+        Debug.LogWarning("chosen color is: " + _chosenColorIndex);
+
+        mySpriteRenderer.DOColor(psychoFruitColors[_chosenColorIndex], _duration)
+            .SetLoops(1, LoopType.Yoyo)
+            .SetEase(Ease.InOutQuad)
+            .OnComplete(() =>
+            {
+                RandomChangeSpriteColor();
+            });
+    }
 }

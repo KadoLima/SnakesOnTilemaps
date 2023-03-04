@@ -48,7 +48,7 @@ public class PowerUpEffector : MonoBehaviour
         float _duration = .25f;
         int _chosenColorIndex = Random.Range(0, psychoFruitColors.Length);
 
-        Debug.LogWarning("chosen color is: " + _chosenColorIndex);
+        //Debug.LogWarning("chosen color is: " + _chosenColorIndex);
 
         mySpriteRenderer.DOColor(psychoFruitColors[_chosenColorIndex], _duration)
             .SetLoops(1, LoopType.Yoyo)

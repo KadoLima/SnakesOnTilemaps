@@ -88,7 +88,7 @@ public class GameEffects : MonoBehaviour
 
                 while (child.GetComponentInChildren<Light2D>().intensity < torchLightIntensity)
                 {
-                    child.GetComponentInChildren<Light2D>().intensity += Time.deltaTime * 10;
+                    child.GetComponentInChildren<Light2D>().intensity += Time.deltaTime * 20;
                     yield return null;
                 }
                 child.GetComponentInChildren<Light2D>().intensity = torchLightIntensity;

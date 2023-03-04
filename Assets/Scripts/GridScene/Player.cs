@@ -177,9 +177,9 @@ public class Player : MonoBehaviour
         if (Time.time > nextMove)
         {
             Vector3Int _currentPosition = TilemapsManager.instance.Scenario.WorldToCell(transform.position);
-            Vector3Int _nextPosition = Vector3Int.zero;
+            //Vector3Int _nextPosition = Vector3Int.zero;
 
-            _nextPosition = SetDirection(_currentPosition, _nextPosition);
+            Vector3Int _nextPosition = SetDirection(_currentPosition);
 
             for (int i = body.Count - 1; i > 0; i--)
             {
@@ -196,7 +196,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private Vector3Int SetDirection(Vector3Int _currentPosition, Vector3Int _nextPosition)
+    private Vector3Int SetDirection(Vector3Int _currentPosition)
     {
 
         switch (currentDirection)
@@ -258,15 +258,35 @@ public class Player : MonoBehaviour
 
     void GrowBody()
     {
-        Vector3Int _pos = TilemapsManager.instance.Scenario.WorldToCell(transform.position);
+        //Vector3Int _headPosition = TilemapsManager.instance.Scenario.WorldToCell(transform.position);
 
-        if (body.Count != 0)
-        {
-            Vector3Int _oldPos = Vector3Int.FloorToInt(body[body.Count - 1].position);
-            _pos = TilemapsManager.instance.Scenario.WorldToCell(_oldPos);
-        }
+        //if (body.Count > 0)
+        //{
+        //    Vector3Int _oldPos = Vector3Int.FloorToInt(body[body.Count - 1].position);
+        //    _headPosition = TilemapsManager.instance.Scenario.WorldToCell(_oldPos);
+        //}
 
-        body.Add(Instantiate(bodyPrefab, TilemapsManager.instance.Scenario.GetCellCenterWorld(_pos), Quaternion.identity).transform);
+        //body.Add(Instantiate(bodyPrefab, TilemapsManager.instance.Scenario.GetCellCenterWorld(_headPosition), Quaternion.identity).transform);
 
+        Vector3Int headPos = TilemapsManager.instance.Scenario.WorldToCell(transform.position);
+        Vector3Int tailPos = (body.Count > 0) ? Vector3Int.FloorToInt(body[body.Count - 1].position) : headPos;
+
+        Vector3Int diff = headPos - tailPos;
+        Vector3Int newPos = tailPos + diff;
+
+        Transform _instiatedBody = Instantiate(bodyPrefab, TilemapsManager.instance.Scenario.GetCellCenterWorld(newPos), Quaternion.identity).transform;
+
+        body.Add(_instiatedBody);
+
+        StartCoroutine(EnableBodyCollider_Delayed(_instiatedBody.GetComponent<Collider2D>()));
+
+    }
+
+    IEnumerator EnableBodyCollider_Delayed(Collider2D coll)
+    {
+        // _instiatedBody.GetComponent<Collider2D>().enabled = false;
+        coll.enabled = false;
+        yield return new WaitForSeconds(0.25f);
+        coll.enabled = true;
     }
 }

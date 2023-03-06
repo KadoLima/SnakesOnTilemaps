@@ -34,6 +34,9 @@ public class Player : MonoBehaviour
 
     bool isDead;
 
+    int collectedCount = 0;
+    public int CollectedCount => collectedCount;
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +55,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (GameController.instance.IsPlayable() && !isDead)
+        if (GameController.instance.IsPlayable() && !isDead && !PauseScreen.isPaused && !VictoryScreen.beatGame)
         {
             ReadUserInput();
             MoveToAnotherTile();
@@ -225,12 +228,16 @@ public class Player : MonoBehaviour
         {
             GrowBody();
 
-            if (TilemapsManager.instance.powerUpCreator.IsPsychoFruit())
+            if (TilemapsManager.instance.spawnableCreator.IsPsychoFruit())
                 GameEffects.instance.PlayPsychoEffect();
 
             //TilemapsManager.instance.powerUpCreator.PlayEffectAt(collision.transform.position);
             Destroy(collision.gameObject);
-            TilemapsManager.instance.powerUpCreator.CreatePowerUpAtRandomPosition();
+            TilemapsManager.instance.ClearBusyTileAt(TilemapsManager.instance.Scenario.WorldToCell(transform.position));
+            TilemapsManager.instance.spawnableCreator.CreatePowerUpAtRandomPosition();
+            collectedCount++;
+            CheckIfBeatGame();
+            //Debug.LogWarning("collected: " + collectedCount);
             return;
         }
 
@@ -247,10 +254,19 @@ public class Player : MonoBehaviour
             isDead = true;
             StartCoroutine(ReloadScene_Coroutine());
         }
+
+        if (collision.CompareTag("Bomb"))
+        {
+            isDead = true;
+            collision.GetComponent<SpriteRenderer>().sortingOrder = this.transform.GetComponentInChildren<SpriteRenderer>().sortingOrder + 1;
+            collision.GetComponent<Animator>().SetTrigger("explode");
+            StartCoroutine(ReloadScene_Coroutine());
+        }
     }
 
-    IEnumerator ReloadScene_Coroutine()
+    IEnumerator ReloadScene_Coroutine(float delay=0)
     {
+        yield return new WaitForSeconds(delay);
         GameEffects.instance.CameraShake();
         yield return new WaitForSeconds(0.3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -288,5 +304,14 @@ public class Player : MonoBehaviour
         coll.enabled = false;
         yield return new WaitForSeconds(0.25f);
         coll.enabled = true;
+    }
+
+    public void CheckIfBeatGame()
+    {
+        if (collectedCount >= GameController.instance.FruitsToBeatGame)
+        {
+            GetComponent<Collider2D>().enabled = false;
+            GameController.instance.victoryScreen.ShowVictoryScreen();
+        }
     }
 }

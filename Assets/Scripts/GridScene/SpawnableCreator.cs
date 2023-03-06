@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PowerUpCreator : MonoBehaviour
+public class SpawnableCreator : MonoBehaviour
 {
     [SerializeField] Tilemap scenario;
-    [SerializeField] Tilemap firecampAreaTilemap;
+    //[SerializeField] Tilemap busyAreaTilemap;
+    [Header("Prefabs")]
     [SerializeField] Transform[] powerUpPrefabs;
+    [SerializeField] Transform landMinePrefab;
+    //[SerializeField] TileBase busyTile;
     [SerializeField] Player player;
+    [Header("Psycho Fruit Rules")]
     [SerializeField] float psychoFruitDropRate = 0.1f;
+    [Header("Landmine Rules")]
+    [SerializeField] float chanceToSpawnMine = 0.5f;
+    [SerializeField] float minDistanceToSpawnLandmine = 5f;
     int spawnedCount = 0;
 
     bool currentFruitIsPsycho = false;
@@ -45,14 +52,39 @@ public class PowerUpCreator : MonoBehaviour
 
         Vector3Int _randomPos = TilemapsManager.instance.GetRandomTilePosition();
 
-        while (IsBodyInTile(_randomPos) || IsTooCloseToFirecamp(_randomPos))
+        while (IsBodyInTile(_randomPos) || IsOverBusyArea(_randomPos))
         {
             _randomPos = TilemapsManager.instance.GetRandomTilePosition();
         }
 
+
+        TilemapsManager.instance.SetBusyTileAt(_randomPos);
         _powerUp.position = TilemapsManager.instance.Scenario.GetCellCenterWorld(_randomPos);
         _powerUp.SetParent(transform);
         spawnedCount++;
+
+        CreateLandMineAtRandomPos();
+    }
+
+    void CreateLandMineAtRandomPos()
+    {
+        if (GameController.instance.player.CollectedCount < 3)
+            return;
+
+        if (Random.value > chanceToSpawnMine)
+            return;
+
+        Transform _landMine = Instantiate(landMinePrefab);
+        Vector3Int _randomPos = TilemapsManager.instance.GetRandomTilePosition_ToSpawnLandmine();
+
+        while (IsBodyInTile(_randomPos) || IsOverBusyArea(_randomPos))
+        {
+            _randomPos = TilemapsManager.instance.GetRandomTilePosition_ToSpawnLandmine();
+        }
+
+        TilemapsManager.instance.SetBusyTileAt(_randomPos);
+        _landMine.position = TilemapsManager.instance.Scenario.GetCellCenterWorld(_randomPos);
+        _landMine.SetParent(transform);
     }
 
     bool IsBodyInTile(Vector3Int tilePosition)
@@ -73,9 +105,9 @@ public class PowerUpCreator : MonoBehaviour
         return currentFruitIsPsycho;
     }
 
-    bool IsTooCloseToFirecamp(Vector3Int tilePosition)
+    bool IsOverBusyArea(Vector3Int tilePosition)
     {
-        return firecampAreaTilemap.HasTile(tilePosition);
+        return TilemapsManager.instance.BusySpotsTilemap.HasTile(tilePosition);
     }
 
    //public void PlayEffectAt(Vector2 pos)

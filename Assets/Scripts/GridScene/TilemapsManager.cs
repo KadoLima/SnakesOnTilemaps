@@ -6,14 +6,18 @@ using UnityEngine.Tilemaps;
 public class TilemapsManager : MonoBehaviour
 {
     [SerializeField] Tilemap scenario;
+    [SerializeField] Tilemap busyAreaTilemap;
+    public Tilemap BusySpotsTilemap => busyAreaTilemap;
+    [SerializeField] TileBase busyTile;
     [SerializeField] TileBase DebugTile;
     public Tilemap Scenario => scenario;
 
     public static TilemapsManager instance;
 
-    [SerializeField] List<Vector3Int> movableTilesPositions = new List<Vector3Int>();
+    List<Vector3Int> movableTilesPositions = new List<Vector3Int>();
+    List<Vector3Int> landMinesSpawnablePositions = new List<Vector3Int>();
 
-    public PowerUpCreator powerUpCreator;
+    public SpawnableCreator spawnableCreator;
     public List<Vector3Int> MovableTilesPositions => movableTilesPositions;
 
     private void Awake()
@@ -26,8 +30,9 @@ public class TilemapsManager : MonoBehaviour
     void Start()
     {
         GetMovableArea();
+        GetLandMineSpawnableArea();
 
-        powerUpCreator.CreatePowerUpAtRandomPosition();
+        spawnableCreator.CreatePowerUpAtRandomPosition();
     }
 
     private void GetMovableArea()
@@ -40,6 +45,27 @@ public class TilemapsManager : MonoBehaviour
         {
             movableTilesPositions.Add(t);
         }
+    }
+
+    void GetLandMineSpawnableArea()
+    {
+        Vector3Int _firstBottomLeftTilePos = new Vector3Int(scenario.cellBounds.xMin + (int)CellSizeX()*2, scenario.cellBounds.yMin + (int)CellSizeY()*2);
+        BoundsInt _spawnableArea = new BoundsInt(_firstBottomLeftTilePos, new Vector3Int(scenario.cellBounds.size.x - 3, scenario.cellBounds.size.y - 3, 1));
+
+        foreach (Vector3Int t in _spawnableArea.allPositionsWithin)
+        {
+            landMinesSpawnablePositions.Add(t);
+        }
+    }
+
+    public void SetBusyTileAt(Vector3Int pos)
+    {
+        busyAreaTilemap.SetTile(pos, busyTile);
+    }
+
+    public void ClearBusyTileAt(Vector3Int pos)
+    {
+        busyAreaTilemap.SetTile(pos, null);
     }
 
     public void ChangeTile(Vector3Int pos) //Changes the tile at the given "pos" position to another tile.
@@ -66,5 +92,10 @@ public class TilemapsManager : MonoBehaviour
     public Vector3Int GetRandomTilePosition()
     {
         return movableTilesPositions[Random.Range(0, movableTilesPositions.Count)];
+    }
+
+    public Vector3Int GetRandomTilePosition_ToSpawnLandmine()
+    {
+        return landMinesSpawnablePositions[Random.Range(0, landMinesSpawnablePositions.Count)];
     }
 }

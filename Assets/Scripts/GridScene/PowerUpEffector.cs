@@ -19,6 +19,7 @@ public class PowerUpEffector : MonoBehaviour
 
     SpriteRenderer mySpriteRenderer;
 
+    Sequence floatSequence;
 
     private void Start()
     {
@@ -29,15 +30,20 @@ public class PowerUpEffector : MonoBehaviour
         RandomChangeSpriteColor();
     }
 
+    private void OnDestroy()
+    {
+        floatSequence.Kill();
+    }
+
     private void Float()
     {
         startPos = transform.position;
 
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(transform.DOMoveY(startPos.y + floatDistance, floatDuration).SetEase(Ease.InOutSine));
-        sequence.Append(transform.DOMoveY(startPos.y, floatDuration).SetEase(Ease.InOutSine));
-        sequence.SetLoops(-1);
-        sequence.Play();
+        floatSequence= DOTween.Sequence();
+        floatSequence.Append(transform.DOMoveY(startPos.y + floatDistance, floatDuration).SetEase(Ease.InOutSine));
+        floatSequence.Append(transform.DOMoveY(startPos.y, floatDuration).SetEase(Ease.InOutSine));
+        floatSequence.SetLoops(-1);
+        floatSequence.Play();
     }
 
     void RandomChangeSpriteColor()

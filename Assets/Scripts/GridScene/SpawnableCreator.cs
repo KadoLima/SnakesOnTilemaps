@@ -20,12 +20,6 @@ public class SpawnableCreator : MonoBehaviour
     int spawnedCount = 0;
 
     bool currentFruitIsPsycho = false;
-    //[SerializeField] ParticleSystem powerUpParticles;
-
-    private void Start()
-    {
-        //powerUpParticles.gameObject.SetActive(false);
-    }
 
     public void CreatePowerUpAtRandomPosition()
     {
@@ -110,17 +104,4 @@ public class SpawnableCreator : MonoBehaviour
         return TilemapsManager.instance.BusySpotsTilemap.HasTile(tilePosition);
     }
 
-   //public void PlayEffectAt(Vector2 pos)
-   // {
-   //     powerUpParticles.transform.position = pos;
-   //     StartCoroutine(PlayEffectCoroutine());
-   // }
-
-   // IEnumerator PlayEffectCoroutine()
-   // {
-   //     powerUpParticles.gameObject.SetActive(true);
-   //     powerUpParticles.Play();
-   //     yield return new WaitForSeconds(1);
-   //     powerUpParticles.gameObject.SetActive(false);
-   // }
 }

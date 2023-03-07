@@ -41,13 +41,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SetInitialPosition(TilemapsManager.instance.Scenario.WorldToCell(transform.position));
-
-        //TilemapsManager.instance.ChangeTile(TilemapsManager.instance.ScenarioTilemap.WorldToCell(transform.position));
-        //TilemapsManager.instance.PaintTile(TilemapsManager.instance.ScenarioTilemap.WorldToCell(transform.position));
-
-        
-
         StartCoroutine(AppearingEffect());
     }
 
@@ -69,7 +62,6 @@ public class Player : MonoBehaviour
         originalScale = transform.localScale;
         transform.DOScale(0, 0);
 
-        //yield return new WaitUntil(() => GameController.instance.wallTilesEffector.IsDone);
         yield return new WaitUntil(() => GameEffects.instance.IntroDone);
 
         var sequence = DOTween.Sequence();
@@ -126,61 +118,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    //public void ReadUserInput()
-    //{
-
-    //    if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-    //    {
-    //        if (currentDirection != CurrentDirection.UP && movedTilesInCurrentDirection>0)
-    //        {
-    //            currentDirection = CurrentDirection.DOWN;
-    //            movedTilesInCurrentDirection = 0;
-    //            return;
-    //        }
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-    //    {
-    //        if (currentDirection != CurrentDirection.DOWN && movedTilesInCurrentDirection > 0)
-    //        {
-    //            currentDirection = CurrentDirection.UP;
-    //            movedTilesInCurrentDirection = 0;
-    //            return;
-    //        }
-
-    //    }
-    //    if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-    //        {
-    //        if (currentDirection != CurrentDirection.RIGHT && movedTilesInCurrentDirection > 0)
-    //        {
-    //            currentDirection = CurrentDirection.LEFT;
-    //            movedTilesInCurrentDirection = 0;
-    //            return;
-    //        }
-
-    //        }
-    //    if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-    //    {
-    //        if (currentDirection != CurrentDirection.LEFT && movedTilesInCurrentDirection > 0)
-    //        {
-    //            currentDirection = CurrentDirection.RIGHT;
-    //            movedTilesInCurrentDirection = 0;
-    //            return;
-    //        }
-    //    }
-    //}
-
-    //private void SetInitialPosition(Vector3Int pos) //Snaps the player gameObject in the center of the nearest cell, when game starts.
-    //{
-    //    Vector3Int _cellPosition = pos;
-    //    transform.position = TilemapsManager.instance.Scenario.GetCellCenterWorld(_cellPosition);
-    //}
-
     void MoveToAnotherTile() //Move to the next cell.
     {
         if (Time.time > nextMove)
         {
             Vector3Int _currentPosition = TilemapsManager.instance.Scenario.WorldToCell(transform.position);
-            //Vector3Int _nextPosition = Vector3Int.zero;
 
             Vector3Int _nextPosition = SetDirection(_currentPosition);
 
@@ -231,13 +173,11 @@ public class Player : MonoBehaviour
             if (TilemapsManager.instance.spawnableCreator.IsPsychoFruit())
                 GameEffects.instance.PlayPsychoEffect();
 
-            //TilemapsManager.instance.powerUpCreator.PlayEffectAt(collision.transform.position);
             Destroy(collision.gameObject);
             TilemapsManager.instance.ClearBusyTileAt(TilemapsManager.instance.Scenario.WorldToCell(transform.position));
             TilemapsManager.instance.spawnableCreator.CreatePowerUpAtRandomPosition();
             collectedCount++;
             CheckIfBeatGame();
-            //Debug.LogWarning("collected: " + collectedCount);
             return;
         }
 
@@ -274,16 +214,6 @@ public class Player : MonoBehaviour
 
     void GrowBody()
     {
-        //Vector3Int _headPosition = TilemapsManager.instance.Scenario.WorldToCell(transform.position);
-
-        //if (body.Count > 0)
-        //{
-        //    Vector3Int _oldPos = Vector3Int.FloorToInt(body[body.Count - 1].position);
-        //    _headPosition = TilemapsManager.instance.Scenario.WorldToCell(_oldPos);
-        //}
-
-        //body.Add(Instantiate(bodyPrefab, TilemapsManager.instance.Scenario.GetCellCenterWorld(_headPosition), Quaternion.identity).transform);
-
         Vector3Int headPos = TilemapsManager.instance.Scenario.WorldToCell(transform.position);
         Vector3Int tailPos = (body.Count > 0) ? Vector3Int.FloorToInt(body[body.Count - 1].position) : headPos;
 
@@ -295,12 +225,10 @@ public class Player : MonoBehaviour
         body.Add(_instiatedBody);
 
         StartCoroutine(EnableBodyCollider_Delayed(_instiatedBody.GetComponent<Collider2D>()));
-
     }
 
     IEnumerator EnableBodyCollider_Delayed(Collider2D coll)
     {
-        // _instiatedBody.GetComponent<Collider2D>().enabled = false;
         coll.enabled = false;
         yield return new WaitForSeconds(0.25f);
         coll.enabled = true;

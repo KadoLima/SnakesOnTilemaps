@@ -33,7 +33,6 @@ public class GameController : MonoBehaviour
     public bool IsPlayable()
     {
         return player.IsReady && GameEffects.instance.IntroDone;
-        //return wallTilesEffector.IsDone && player.IsReady;
     }
 
 

@@ -45,7 +45,6 @@ public class GameEffects : MonoBehaviour
 
     private void Start()
     {
-        //postProcessVolume.profile.TryGetSettings(out colorAdj);
         volume.profile.TryGet(out colorAdj);
         colorAdj.hueShift.value = 0;
 
@@ -92,10 +91,7 @@ public class GameEffects : MonoBehaviour
                     yield return null;
                 }
                 child.GetComponentInChildren<Light2D>().intensity = torchLightIntensity;
-                //yield return new WaitForSeconds(0.02f);
-                //child.DOScale(_origScale , torchEffectTime);
                 yield return new WaitForSeconds(_tweenTime);
-                //_tweenTime /= 1.2f;
             }
             introDone = true;
             blackScreen.gameObject.SetActive(false);
@@ -105,7 +101,6 @@ public class GameEffects : MonoBehaviour
             foreach (Transform child in torchesParent)
             {
                 child.gameObject.SetActive(true);
-                //child.DOScale(1, 0);
             }
 
             introDone = true;
